@@ -1,0 +1,37 @@
+datasets:
+#  fred:
+#    name: "FRED_1_poses"
+  posit:
+    name: "ALL_1_poses"
+
+analyses:
+  datesplit:
+    default:
+      settings: reference_split_comparison.yaml
+      enabled_datasets: ["posit", "fred"]
+
+  x_to_x:
+    default:
+      settings: x_to_x_scaffold_split.yaml
+      enabled_datasets: ["posit"]
+    five_refs:
+      settings: x_to_x_scaffold_split_5_refs.yaml
+
+  x_to_y:
+    default:
+      settings: x_to_y_scaffold_split.yaml
+      enabled_datasets: ["posit"]
+    five_refs:
+      settings: x_to_y_scaffold_split_5_refs.yaml
+
+  increasing_similarity:
+    tanimoto_combo_aligned:
+      settings: increasing_similarity_tanimoto_combo_aligned.yaml
+      enabled_datasets: ["posit", "fred"]
+    mcs:
+      settings: increasing_similarity_mcs.yaml
+      enabled_datasets: ["posit", "fred"]
+    ecfp4:
+      settings: increasing_similarity_ecfp4.yaml
+      enabled_datasets: ["posit", "fred", "posit_multipose"]
+
